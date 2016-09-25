@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/signup', [
+    'uses' => 'UserController@postSignUp',
+    'as' => 'signup'
+]);
+
+
+
+
+//
+//Route::group(['middleware' => ['web']], function() {
+//    Route::get('/', function() {
+//        return view('welcome');
+//    });
+//
+//    Route::posts('/signup', [
+//        'uses' => 'UserController@postSignUp',
+//        'as' => 'signup'
+//    ]);
+//});

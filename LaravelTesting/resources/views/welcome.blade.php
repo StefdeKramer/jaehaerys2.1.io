@@ -16,12 +16,20 @@
 @endsection
 
 
-@section('contentSignup')
+@section('content')
+    <div class="row">
+        <div class="col-md-2">
+            <h2>Sportsy</h2>
+            <p>Welcome, This application makes selling/rating sports products easy and simple. To participate you simply
+                have to make an account and posts some products of yourself.</p>
+        </div>
+
+    </div>
     <div class="row">
         <div class="col-md-6">
 
             <h3>Sign up</h3>
-            <form action="{{ route('signup') }}" method="post">
+            <form method="post" action="{{ route('signup') }}">
                 <div class="form-group">
                     <label for="email">Your E-Mail</label>
                     <input class="form-control" type="text" name="email" id="email">

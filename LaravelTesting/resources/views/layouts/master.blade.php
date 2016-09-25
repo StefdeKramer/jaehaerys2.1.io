@@ -11,9 +11,9 @@
 @include('includes.header')
 <div class="containter">
 
-        @yield('Image')
 
-        @yield('contentSignup')
+
+        @yield('content')
 
 </div>
 </body>
