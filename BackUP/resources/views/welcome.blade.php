@@ -50,8 +50,6 @@
             lorum ipsum maar van ipsum lorem</p>
     </div>
 
-
-
     <div class="row">
         <div class="col-md-6">
 
@@ -72,24 +70,24 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <input type="hidden" name="_token" value="{{ Session::token()}}">
                 {{--Bescherming voor session secure te houden--}}
+
             </form>
         </div>
-
-
         <div class="col-md-6">
-            <h3>Sign In</h3>
-            <form action="{{ route('signin') }}" method="post">
+
+            <h3>Sign in</h3>
+            <form action="#" method="post">
                 <div class="form-group">
                     <label for="email">Your E-Mail</label>
                     <input class="form-control" type="text" name="email" id="email">
                 </div>
                 <div class="form-group">
                     <label for="password">Your Password</label>
-                    <input class="form-control" type="password" name="password" id="password">
+                    <input class="form-control" type="password" name="email" id="email">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <input type="hidden" name="_token" value="{{ Session::token() }}">
             </form>
+
         </div>
     </div>
 
