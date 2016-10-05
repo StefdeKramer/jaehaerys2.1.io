@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Brand</a>
-                <a class="navbar-brand" href="#">Sign Up</a>
+                <a class="navbar-brand" href="route {{ 'userpage' }}">Sign Up</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
