@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/home', [
+    'uses' => 'ExerciseController@getHome',
+    'as' => 'home',
+    'middleware' => 'auth'
+]);
+
+Route::post('/createExercise', [
+    'uses' => 'ExerciseController@postCreateExercise',
+    'as' => 'exercise.create',
+    'middleware' => 'auth'
+]);
