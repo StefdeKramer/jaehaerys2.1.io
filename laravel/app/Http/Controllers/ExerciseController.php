@@ -13,6 +13,10 @@ class ExerciseController extends Controller
         $exercise = Exercise::all();
         return view('home', ['exercise' => $exercise]);
     }
+    
+    public function getCreateExercise(){
+        return view('CreateExercise');
+    }
 
 
     public function postCreateExercise(Request $request){
@@ -29,7 +33,7 @@ class ExerciseController extends Controller
 
         $message = 'There is an error';
         if ($request->user()->exercises()->save($exercise)) {
-            $message = 'Exercise has been successfullly created';
+//            $message = 'Exercise has been successfullly created';
         }
         return redirect()->route('home')->with(['message' => $message]);
     }

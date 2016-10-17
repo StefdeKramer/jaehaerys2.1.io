@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="well text-center">
-                    Place, rate or like sport products or exercises. Easily create an account.
+                    Share your exercises with everybody!
                 </div>
             </div>
 
@@ -36,7 +36,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi
                     non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi
                     dolor consectetur.</p>
-                <a class="btn btn-default" href="#">More Info</a>
+
             </div>
 
             <div class="col-md-4">
@@ -44,7 +44,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi
                     non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi
                     dolor consectetur.</p>
-                <a class="btn btn-default" href="#">More Info</a>
+
             </div>
 
             <div class="col-md-4">
@@ -52,7 +52,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi
                     non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi
                     dolor consectetur.</p>
-                <a class="btn btn-default" href="#">More Info</a>
+
             </div>
 
         </div>

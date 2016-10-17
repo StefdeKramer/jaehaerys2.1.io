@@ -30,3 +30,8 @@ Route::post('/createExercise', [
     'as' => 'exercise.create',
     'middleware' => 'auth'
 ]);
+
+Route::get('/CreateExercise', [
+    'uses' => 'ExerciseController@getCreateExercise',
+    'middleware' => 'auth'
+]);

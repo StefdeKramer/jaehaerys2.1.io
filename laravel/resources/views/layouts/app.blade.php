@@ -78,6 +78,12 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li>
+                                      <a  href="{{ url('/CreateExercise') }}">Create Exercise </a>
+                                    </li>
+                                    <li>
+                                        <a  href="{{ url('/home') }}">Home</a>
+                                    </li>
 
                                 </ul>
                             </li>
