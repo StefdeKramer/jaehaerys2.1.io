@@ -85,6 +85,7 @@
                                         <a  href="{{ url('/home') }}">Home</a>
                                     </li>
 
+
                                 </ul>
                             </li>
                         @endif

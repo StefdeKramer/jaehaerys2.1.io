@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/',function () {
     return view('welcome');
+
 });
 
 Auth::routes();
@@ -25,6 +26,7 @@ Route::get('/home', [
     'middleware' => 'auth'
 ]);
 
+
 Route::post('/createExercise', [
     'uses' => 'ExerciseController@postCreateExercise',
     'as' => 'exercise.create',
@@ -35,3 +37,4 @@ Route::get('/CreateExercise', [
     'uses' => 'ExerciseController@getCreateExercise',
     'middleware' => 'auth'
 ]);
+

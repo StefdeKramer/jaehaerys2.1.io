@@ -13,6 +13,14 @@ class ExerciseController extends Controller
         $exercise = Exercise::all();
         return view('home', ['exercise' => $exercise]);
     }
+
+//    public function getWelcome(){
+//        $exercise = Exercise::all()
+//            ->random()
+//            ->take(3);
+//        return view('welcome', ['exercise' => $exercise]);
+//        
+//    }
     
     public function getCreateExercise(){
         return view('CreateExercise');

@@ -12,6 +12,11 @@ class User extends Authenticatable
     public function exercises(){
         return $this->hasMany('App\Exercise');
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role', 'user_role', 'user_id', 'role_id');
+    }
     protected $fillable = [
         'name', 'email', 'password',
     ];
