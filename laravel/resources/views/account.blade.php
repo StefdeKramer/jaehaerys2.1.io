@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('includes.message-block')
-      <div class="container">
+    <div class="container">
         @foreach($exercises as $ShowExercise)
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3>{{ $ShowExercise->title }}</h3>
-                            <a href="{{ route('CreateComment') }}" class="like">Create Comment</a>
+
                         </div>
 
                         <div class="panel-body">
@@ -21,10 +20,17 @@
                                 The exercise is posted by {{ $ShowExercise->user->name }}
                             </div>
 
+                            <div class ="interaction">
+                                <a href="{{ route('exercise.delete', ['$exercise_id' => $ShowExercise->id]) }}">Delete</a>
+                                <a href="#">Edit</a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
+
+
 @endsection

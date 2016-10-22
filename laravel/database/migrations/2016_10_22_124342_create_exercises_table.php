@@ -22,14 +22,16 @@ class CreateExercisesTable extends Migration
      */
 
     public function up()
-            {
+    {
         Schema::create('exercises', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->text('title');
             $table->text('body');
             $table->text('musclegroups');
+            $table->boolean('active')->default(true);
             $table->integer('user_id');
+
 
 
         });
