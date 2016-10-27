@@ -20,6 +20,10 @@ class UserController extends Controller
         $users = User::all();
         return view('admin', ['users' => $users]);
     }
+    
+    
+
+ 
 
     public function postAdminAssignRoles(Request $request)
     {

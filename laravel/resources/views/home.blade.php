@@ -2,6 +2,7 @@
 
 @section('content')
     @include('includes.message-block')
+    @include('includes.search')
       <div class="container">
         @foreach($exercises as $ShowExercise)
             <div class="row">

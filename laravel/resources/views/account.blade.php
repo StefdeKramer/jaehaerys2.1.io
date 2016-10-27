@@ -22,7 +22,7 @@
 
                             <div class ="interaction">
                                 <a href="{{ route('exercise.delete', ['$exercise_id' => $ShowExercise->id]) }}">Delete</a>
-                                <a href="#">Edit</a>
+                                <a href="{{ route('edit', ['$exercise_id' => $ShowExercise->id]) }}">Edit</a>
                             </div>
 
                         </div>

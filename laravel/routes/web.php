@@ -10,13 +10,15 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
-Route::get('/',function () {
-    return view('welcome');
-
-});
+//
+//Route::get('/',function () {
+//    return view('welcome');
+//
+//});
 
 Auth::routes();
+
+Route::get('/', 'ExerciseController@getWelcome');
 
 Route::get('/home', 'HomeController@index');
 
@@ -30,15 +32,15 @@ Route::get('/home', [
 Route::post('/createExercise', [
     'uses' => 'ExerciseController@postCreateExercise',
     'as' => 'exercise.create',
-    'middleware' => ['auth', 'roles'],
-    'roles' => ['Admin', 'User'],
+    'middleware' => ['auth'],
+   // 'roles' => ['Admin', 'User'],
    
 ]);
 
 Route::get('/CreateExercise', [
     'uses' => 'ExerciseController@getCreateExercise',
-    'middleware' => ['auth', 'roles'],
-    'roles' => ['Admin', 'User'],
+    'middleware' => ['auth'],
+    //'roles' => ['Admin', 'User'],
 ]);
 
 Route::get('/admin', [
@@ -50,7 +52,7 @@ Route::get('/admin', [
 
 Route::post('/admin/assign-roles', [
     'uses' => 'UserController@postAdminAssignRoles',
-    'as' => 'admin.assign',
+    'as' => 'admin.assign', 
     'middleware' => ['auth', 'roles'],
     'roles' => ['Admin']
 ]);
@@ -80,8 +82,16 @@ Route::get('/delete-exercise/{id}', [
     'middleware' => 'auth'
 ]);
 
+Route::get('/get-exercise/{id}', [
+    'uses' => 'ExerciseController@getEditExercise',
+    'as' => 'edit',
+    'middleware' => 'auth'
+]);
+
 
 Route::post('/edit', [
     'uses' => 'ExerciseController@postEditExercise',
-    'as' => 'edit'
+    'as' => 'edit.exercise',
+    'middleware' => 'auth'
 ]);
+
