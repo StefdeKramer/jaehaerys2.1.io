@@ -4,23 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Exercise;
 use App\Http\Requests;
 
 class SearchController extends Controller
 {
-    public function filter(Request $request, User $user){
-        // Search for a user based on their name.
-        if ($request->has('name')) {
-            return $user->where('name', $request->input('name'))->get();
-        }
+//    public function search(){
+//
+//        return view('Search')   ;
+////        $exercises = Exercise::where('active', true)->get();
+////        return view('home', ['exercises' => $exercises]);
+//
+//    }
 
-        // Search for a user based on their company.
-        if ($request->has('email')) {
-            return $user->where('email', $request->input('email'))
-                ->get();
-               }
+    public function searchExercise(Request $request){
 
-        return User::all();
+        $exercises = Exercise::where('active', true)
+            ->where('musclegroups', $request->input('musclegroups'))
+            ->get();
 
+        return view('searchResult', ['exercises' => $exercises]);
+
+        
     }
+    
 }

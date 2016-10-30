@@ -19,6 +19,7 @@
 
                     <button type="submit" class="btn btn-primary">Create Post</button>
                     <input type="hidden" value="{{ Session::token() }}" name="_token">
+                    <input type="hidden" value=" {{ $exercises->id }}" name="exercise_id">
                 </form>
             </div>
         </section>

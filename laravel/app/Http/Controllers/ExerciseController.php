@@ -40,38 +40,71 @@ class ExerciseController extends Controller
         return view('CreateExercise');
     }
 
-    public function getEditExercise()
-    {
 
-        return view('EditExercise');
+    public function getEditExercise($id)
+    {
+        $exercise = Exercise::where('id', $id)->first();
+
+        return view('EditExercise', ['exercises' => $exercise]);
     }
 
-
-    //Het verwijderen van een exercise
-    public function getDeleteExercise($exercise_id)
-    {
-        $exercise = Exercise::find('id', $exercise_id)->first();
-        if (Auth::user() != $exercise->user) {
-            return redirect()->back();
-        }
-        $exercise->delete();
-        return redirect()->route('account')->with(['message' => 'Successfully deleted!']);
-    }
 
     public function postEditExercise(Request $request)
     {
-        $exercise = Exercise::where($request['exercise_id'])->first();
         $this->validate($request, [
             'title' => 'required|max:50',
             'body' => 'required|max:1000',
             'musclegroups' => 'required'
         ]);
-    
-        $exercise->title = $request['title'];
-        $exercise->body = $request['body'];
-        $exercise->musclegroups = $request['musclegroups'];
 
-        $exercise->update();
+
+        $exercise = Exercise::find($request->exercise_id);
+
+        $exercise->title = $request->title;
+        $exercise->body = $request->body;
+        $exercise->musclegroups = $request->musclegroups;
+
+
+        $exercise->save();
+
+        return redirect('account')->with('message', 'Is updated');
+
+    }
+
+
+    //Het verwijderen van een exercise
+    public function getDeleteExercise($id)
+    {
+        $exercise = Exercise::where('id', $id)->first();
+        if (Auth::user() != $exercise->user) {
+            return redirect()->back();
+        }
+
+        $exercise->delete();
+
+
+        return redirect()->route('account')->with(['message' => 'Successfully deleted!']);
+    }
+
+
+//    Het aanpassen van een active exercise naar een non active exercise
+    public function SetNonActive($id)
+    {
+        $exercise = Exercise::where('id', $id)->first();
+        $exercise->active = 0;
+        $exercise->save();
+        echo($exercise->active);
+        return redirect()->route('account')->with(['message' => 'Successfully deleted!']);
+
+    }
+
+    public function SetActive($id)
+    {
+        $exercise = Exercise::where('id', $id)->first();
+        $exercise->active = 1;
+        $exercise->save();
+        echo($exercise->active);
+        return redirect()->route('account')->with(['message' => 'Successfully deleted!']);
 
     }
 
@@ -97,7 +130,19 @@ class ExerciseController extends Controller
 
 
         }
-        return redirect()->route('home')->with(['message' => $message]);
+        $user = Auth::user();
+        if ($user->hasRole('Admin')) {
+            return redirect()->route('home')->with(['message' => $message]);
+
+        }
+        if ($user->hasRole('User')) {
+            return redirect()->route('home')->with(['message' => $message]);
+
+        } else {
+            $user->roles()->attach(Role::where('name', 'User')->first());
+            return redirect()->route('home')->with(['message' => $message]);
+        }
+
     }
 }
 
